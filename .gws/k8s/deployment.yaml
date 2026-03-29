@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs-graphql-yoga
+  namespace: nodejs-graphql-yoga
+  labels:
+    app: nodejs-graphql-yoga
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nodejs-graphql-yoga
+  template:
+    metadata:
+      labels:
+        app: nodejs-graphql-yoga
+    spec:
+      containers:
+      - name: nodejs-graphql-yoga
+        image: nodejs-graphql-yoga
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 4000
+          name: http
+          protocol: TCP
+      restartPolicy: Always

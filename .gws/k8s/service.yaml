@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nodejs-graphql-yoga
+  namespace: nodejs-graphql-yoga
+  labels:
+    app: nodejs-graphql-yoga
+spec:
+  type: ClusterIP
+  selector:
+    app: nodejs-graphql-yoga
+  ports:
+  - port: 80
+    targetPort: 4000
+    protocol: TCP
+    name: http

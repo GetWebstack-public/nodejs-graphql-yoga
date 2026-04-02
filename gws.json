@@ -1,0 +1,23 @@
+{
+  "name": "nodejs-graphql-yoga",
+  "version": "1.0.0",
+  "registry": {
+    "mode": "local"
+  },
+  "services": [
+    {
+      "name": "nodejs-graphql-yoga",
+      "path": ".",
+      "image": "nodejs-graphql-yoga",
+      "manifests": ".gws/k8s",
+      "dockerfile": ".gws/Dockerfile"
+    }
+  ],
+  "provision": {
+    "environments": {
+      "dev": {
+        "type": "k3d"
+      }
+    }
+  }
+}
